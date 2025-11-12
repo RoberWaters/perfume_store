@@ -1,0 +1,661 @@
+{% extends 'base.html' %}
+
+{% block title %}Preguntas Frecuentes - Perfumería Élite{% endblock %}
+
+{% block content %}
+<div class="faq-page">
+    <!-- Hero Section -->
+    <section class="faq-hero">
+        <div class="hero-content">
+            <h1>Preguntas Frecuentes</h1>
+            <p>Encuentra respuestas rápidas a tus consultas y conoce nuestras políticas</p>
+        </div>
+    </section>
+
+    <!-- Navegación Rápida -->
+    <section class="faq-navigation">
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="preguntas">Preguntas Frecuentes</button>
+                <button class="nav-tab" data-tab="politicas">Políticas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <div class="faq-content">
+        <div class="container">
+            <!-- Sección Preguntas Frecuentes -->
+            <section class="faq-section active" id="preguntas-section">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <p class="section-subtitle">Respuestas a las consultas más comunes de nuestros clientes</p>
+                
+                <div class="accordion-container">
+                    <!-- Pregunta 1 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>¿Cómo elijo la fragancia adecuada para mí?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Te recomendamos considerar tu personalidad, ocasiones de uso y preferencias de notas olfativas. Ofrecemos asesoramiento personalizado y muestras para que encuentres tu fragancia perfecta. Las notas cítricas son ideales para día, mientras que las amaderadas funcionan mejor para noche.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 2 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>¿Cuánto tiempo dura la fragancia en la piel?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>La duración varía según el tipo de fragancia (EDT, EDP, Parfum) y tu tipo de piel. Generalmente: Eau de Toilette 4-6 horas, Eau de Parfum 6-8 horas, y Parfum 8-12 horas. Aplicar en puntos de pulso y sobre piel hidratada ayuda a prolongar la duración.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 3 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>¿Hacen envíos a todo Honduras?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Sí, realizamos envíos a todos los departamentos de Honduras. En Tegucigalpa y San Pedro Sula entregamos en 24-48 horas. Para otras ciudades el tiempo de entrega es de 3-5 días hábiles. Los costos de envío varían según la ubicación.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 4 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>¿Qué métodos de pago aceptan?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Aceptamos tarjetas de crédito/débito Visa, MasterCard y American Express. También transferencias bancarias, pago en efectivo contra entrega y pagos a través de plataformas digitales. Todas las transacciones son 100% seguras.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 5 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>¿Puedo devolver o cambiar un perfume?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Aceptamos cambios dentro de los primeros 15 días posteriores a la compra, siempre que el producto esté en perfecto estado, en su empaque original y sin haber sido utilizado. No aceptamos devoluciones por cambio de opinión en fragancias abiertas por motivos de higiene.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 6 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>¿Los perfumes son originales?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Absolutamente. Somos distribuidores autorizados de todas las marcas que comercializamos. Cada fragancia cuenta con su código de autenticidad y viene sellada de fábrica. Garantizamos 100% la originalidad de todos nuestros productos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 7 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>¿Ofrecen muestras o tester?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Sí, ofrecemos muestras de 2ml en selectas fragancias para que puedas probarlas antes de realizar tu compra completa. También contamos con perfumes tester (sin caja) a precios especiales. Consulta disponibilidad.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 8 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>¿Cómo debo almacenar mis perfumes?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Guarda tus fragancias en un lugar fresco y seco, lejos de la luz directa del sol y cambios bruscos de temperatura. Evita el baño por la humedad. Bien almacenados, pueden mantener su calidad por 3-5 años.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 9 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>¿Hacen envíos internacionales?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Actualmente solo realizamos envíos dentro de Honduras. Estamos trabajando para expandir nuestro servicio a Centroamérica próximamente. Síguenos en redes sociales para mantenerte informado sobre novedades.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 10 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>¿Ofrecen descuentos por volumen?</span>
+                            <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Sí, ofrecemos descuentos especiales para compras al por mayor (mínimo 6 unidades) y para regalos corporativos. Contáctanos directamente para cotizaciones personalizadas y condiciones especiales.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Políticas -->
+            <section class="policies-section" id="politicas-section">
+                <h2 class="section-title">Nuestras Políticas</h2>
+                <p class="section-subtitle">Conoce nuestros términos y condiciones para una mejor experiencia de compra</p>
+
+                <div class="policies-grid">
+                    <!-- Política 1 -->
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.1 16,12.7V16.5C16,17.1 15.4,17.7 14.8,17.7H9.2C8.6,17.7 8,17.1 8,16.5V12.6C8,12 8.6,11.4 9.2,11.4H9.3V10C9.3,8.6 10.7,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11.5H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z"/>
+                            </svg>
+                        </div>
+                        <h3>Envíos y Entrega</h3>
+                        <ul>
+                            <li>Envío gratuito en compras mayores a L. 1,500</li>
+                            <li>Tiempo de entrega: 1-3 días hábiles</li>
+                            <li>Horario de entregas: 8:00 AM - 6:00 PM</li>
+                            <li>Seguimiento en tiempo real</li>
+                            <li>Gestión de citas para entrega</li>
+                        </ul>
+                    </div>
+
+                    <!-- Política 2 -->
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.78 12.45,22 13,22C13.55,22 14.05,21.78 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.45 21.78,11.95 21.41,11.58M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7Z"/>
+                            </svg>
+                        </div>
+                        <h3>Devoluciones y Cambios</h3>
+                        <ul>
+                            <li>15 días para cambios</li>
+                            <li>Producto debe estar sellado</li>
+                            <li>Embalaje original necesario</li>
+                            <li>Sin costos de reposición</li>
+                            <li>Proceso en 48 horas</li>
+                        </ul>
+                    </div>
+
+                    <!-- Política 3 -->
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"/>
+                            </svg>
+                        </div>
+                        <h3>Privacidad y Seguridad</h3>
+                        <ul>
+                            <li>Datos 100% protegidos</li>
+                            <li>Sin compartir información</li>
+                            <li>Certificación SSL</li>
+                            <li>Pagos seguros</li>
+                            <li>Política de cookies</li>
+                        </ul>
+                    </div>
+
+                    <!-- Política 4 -->
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
+                            </svg>
+                        </div>
+                        <h3>Garantía de Productos</h3>
+                        <ul>
+                            <li>Originalidad garantizada</li>
+                            <li>30 días por defectos</li>
+                            <li>Reemplazo inmediato</li>
+                            <li>Sellos de autenticidad</li>
+                            <li>Asesoría post-venta</li>
+                        </ul>
+                    </div>
+
+                    <!-- Política 5 -->
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A4,4 0 0,1 8,16A4,4 0 0,1 12,12A4,4 0 0,0 16,8A4,4 0 0,0 12,4M12,6.5A1.5,1.5 0 0,1 13.5,8A1.5,1.5 0 0,1 12,9.5A1.5,1.5 0 0,1 10.5,8A1.5,1.5 0 0,1 12,6.5M12,14.5A1.5,1.5 0 0,0 10.5,16A1.5,1.5 0 0,0 12,17.5A1.5,1.5 0 0,0 13.5,16A1.5,1.5 0 0,0 12,14.5Z"/>
+                            </svg>
+                        </div>
+                        <h3>Términos Generales</h3>
+                        <ul>
+                            <li>Precios incluyen impuestos</li>
+                            <li>Stock sujeto a disponibilidad</li>
+                            <li>Reserva por 24 horas</li>
+                            <li>Cambios de precios sin previo aviso</li>
+                            <li>Jurisdicción hondureña</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="faq-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿No encontraste lo que buscabas?</h2>
+                <p>Nuestro equipo de atención al cliente está listo para ayudarte personalmente</p>
+                <div class="cta-buttons">
+                    <a href="{% url 'about:contact' %}" class="btn btn-accent">Contáctanos</a>
+                    <a href="{% url 'shop:perfume_list' %}" class="btn btn-secondary">Ver Catálogo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+/* FAQ Page Styles */
+.faq-page {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.faq-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #2d2d2d 100%);
+    color: var(--color-white);
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(201,169,97,0.1)"/></svg>');
+    background-size: cover;
+    opacity: 0.3;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Navigation Tabs */
+.faq-navigation {
+    background: var(--color-white);
+    padding: 1.5rem 0;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 3rem;
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.nav-tab {
+    padding: 1rem 2rem;
+    background: var(--color-light);
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nav-tab:hover {
+    border-color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+.nav-tab.active {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+/* Content Sections */
+.faq-content section {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.faq-content section.active {
+    display: block;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Accordion Styles */
+.accordion-container {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.accordion-item {
+    background: var(--color-white);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.accordion-item:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: var(--color-white);
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    transition: var(--transition);
+    text-align: left;
+}
+
+.accordion-header:hover {
+    background: var(--color-light);
+}
+
+.accordion-icon {
+    transition: var(--transition);
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: var(--color-light);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+}
+
+.accordion-content p {
+    padding: 1.5rem 2rem;
+    margin: 0;
+    line-height: 1.7;
+    color: var(--color-text);
+    border-top: 1px solid var(--color-border);
+}
+
+/* Policies Grid */
+.policies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.policy-card {
+    background: var(--color-white);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    text-align: center;
+    border: 1px solid var(--color-border);
+}
+
+.policy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-secondary);
+}
+
+.policy-icon {
+    margin-bottom: 1.5rem;
+    color: var(--color-secondary);
+}
+
+.policy-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.policy-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.policy-card li {
+    padding: 0.5rem 0;
+    color: var(--color-text);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.policy-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+/* CTA Section */
+.faq-cta {
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-white) 100%);
+    padding: 4rem 0;
+    text-align: center;
+    border-radius: 16px;
+    margin-top: 2rem;
+}
+
+.cta-content h2 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-text-light);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .nav-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-tab {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .accordion-header {
+        padding: 1.25rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .accordion-content p {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .policies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .policy-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-hero {
+        padding: 3rem 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Tab Navigation
+    const tabs = document.querySelectorAll('.nav-tab');
+    const sections = document.querySelectorAll('.faq-content section');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-tab');
+            
+            // Update active tab
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Show target section
+            sections.forEach(section => {
+                section.classList.remove('active');
+                if (section.id === `${target}-section`) {
+                    section.classList.add('active');
+                }
+            });
+        });
+    });
+    
+    // Accordion functionality
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all accordions
+            accordionItems.forEach(acc => acc.classList.remove('active'));
+            
+            // Open clicked accordion if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+    
+    // Open first accordion by default
+    if (accordionItems.length > 0) {
+        accordionItems[0].classList.add('active');
+    }
+});
+</script>
+{% endblock %}

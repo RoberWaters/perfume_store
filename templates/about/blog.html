@@ -1,0 +1,920 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - Perfumería Élite{% endblock %}
+
+{% block content %}
+<div class="blog-page">
+    <!-- Hero Section -->
+    <section class="blog-hero">
+        <div class="hero-content">
+            <h1>Blog Élite</h1>
+            <p>Descubre el mundo de las fragancias: tendencias, consejos y novedades en perfumería</p>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="featured-article">
+        <div class="container">
+            <div class="featured-grid">
+                <div class="featured-image">
+                    <div class="image-placeholder">
+                        <span>Imagen destacada del artículo</span>
+                    </div>
+                    <div class="article-badge">Destacado</div>
+                </div>
+                <div class="featured-content">
+                    <div class="article-meta">
+                        <span class="category">Tendencias</span>
+                        <span class="date">15 Nov, 2024</span>
+                    </div>
+                    <h2 class="article-title">Las Fragancias que Dominarán 2024: Guía de Olores que Definen la Nueva Era</h2>
+                    <p class="article-excerpt">Explora las notas olfativas que están revolucionando la industria de la perfumería este año. Desde aromas nostálgicos hasta combinaciones audaces, descubre qué hace especiales a estas fragancias y cómo elegir la perfecta para tu personalidad.</p>
+                    <div class="article-footer">
+                        <div class="author">
+                            <div class="author-avatar">
+                                <span>ME</span>
+                            </div>
+                            <span>María Elena Rodríguez</span>
+                        </div>
+                        <a href="#" class="read-more">Leer Artículo →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- Main Articles -->
+                <div class="articles-grid">
+                    <!-- Article 1 -->
+                    <article class="article-card">
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>Imagen del artículo</span>
+                            </div>
+                            <div class="category-badge">Consejos</div>
+                        </div>
+                        <div class="article-info">
+                            <div class="article-meta">
+                                <span class="date">12 Nov, 2024</span>
+                                <span class="read-time">5 min lectura</span>
+                            </div>
+                            <h3 class="article-title">Cómo Prolongar la Duración de tu Perfume: Secretos de Expertos</h3>
+                            <p class="article-excerpt">Aprende técnicas profesionales para hacer que tus fragancias duren más tiempo en la piel. Desde puntos de aplicación estratégicos hasta el almacenamiento correcto.</p>
+                            <div class="article-footer">
+                                <a href="#" class="read-more">Leer más</a>
+                                <div class="article-stats">
+                                    <span class="likes">42</span>
+                                    <span class="comments">8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="article-card">
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>Imagen del artículo</span>
+                            </div>
+                            <div class="category-badge">Historia</div>
+                        </div>
+                        <div class="article-info">
+                            <div class="article-meta">
+                                <span class="date">8 Nov, 2024</span>
+                                <span class="read-time">7 min lectura</span>
+                            </div>
+                            <h3 class="article-title">La Evolución de la Perfumería: Desde el Antiguo Egipto hasta la Modernidad</h3>
+                            <p class="article-excerpt">Un viaje fascinante a través de los siglos explorando cómo las técnicas y preferencias en perfumería han evolucionado hasta lo que conocemos hoy.</p>
+                            <div class="article-footer">
+                                <a href="#" class="read-more">Leer más</a>
+                                <div class="article-stats">
+                                    <span class="likes">38</span>
+                                    <span class="comments">12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="article-card">
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>Imagen del artículo</span>
+                            </div>
+                            <div class="category-badge">Guías</div>
+                        </div>
+                        <div class="article-info">
+                            <div class="article-meta">
+                                <span class="date">3 Nov, 2024</span>
+                                <span class="read-time">6 min lectura</span>
+                            </div>
+                            <h3 class="article-title">Guía Definitiva: Elegir tu Fragancia Según tu Personalidad</h3>
+                            <p class="article-excerpt">Descubre qué familias olfativas se alinean mejor con tu carácter y estilo de vida. Test incluido para encontrar tu match perfecto.</p>
+                            <div class="article-footer">
+                                <a href="#" class="read-more">Leer más</a>
+                                <div class="article-stats">
+                                    <span class="likes">55</span>
+                                    <span class="comments">15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="article-card">
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>Imagen del artículo</span>
+                            </div>
+                            <div class="category-badge">Novedades</div>
+                        </div>
+                        <div class="article-info">
+                            <div class="article-meta">
+                                <span class="date">28 Oct, 2024</span>
+                                <span class="read-time">4 min lectura</span>
+                            </div>
+                            <h3 class="article-title">Lanzamientos de Otoño 2024: Las Nuevas Fragancias que Debes Conocer</h3>
+                            <p class="article-excerpt">Un vistazo exclusivo a las últimas incorporaciones de las casas perfumeras más prestigiosas y qué las hace especiales.</p>
+                            <div class="article-footer">
+                                <a href="#" class="read-more">Leer más</a>
+                                <div class="article-stats">
+                                    <span class="likes">47</span>
+                                    <span class="comments">9</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="article-card">
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>Imagen del artículo</span>
+                            </div>
+                            <div class="category-badge">Consejos</div>
+                        </div>
+                        <div class="article-info">
+                            <div class="article-meta">
+                                <span class="date">22 Oct, 2024</span>
+                                <span class="read-time">5 min lectura</span>
+                            </div>
+                            <h3 class="article-title">Errores Comunes al Aplicar Perfume y Cómo Evitarlos</h3>
+                            <p class="article-excerpt">Desde la aplicación excesiva hasta el almacenamiento inadecuado, te enseñamos los mistakes más frecuentes y sus soluciones.</p>
+                            <div class="article-footer">
+                                <a href="#" class="read-more">Leer más</a>
+                                <div class="article-stats">
+                                    <span class="likes">63</span>
+                                    <span class="comments">18</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="article-card">
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>Imagen del artículo</span>
+                            </div>
+                            <div class="category-badge">Sostenibilidad</div>
+                        </div>
+                        <div class="article-info">
+                            <div class="article-meta">
+                                <span class="date">15 Oct, 2024</span>
+                                <span class="read-time">8 min lectura</span>
+                            </div>
+                            <h3 class="article-title">Perfumería Sostenible: El Futuro de las Fragancias Conscientes</h3>
+                            <p class="article-excerpt">Cómo la industria está adoptando prácticas eco-friendly sin comprometer la calidad y el lujo de las fragancias.</p>
+                            <div class="article-footer">
+                                <a href="#" class="read-more">Leer más</a>
+                                <div class="article-stats">
+                                    <span class="likes">51</span>
+                                    <span class="comments">11</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Categories -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Categorías</h3>
+                        <ul class="categories-list">
+                            <li><a href="#" class="category-link active">Todas <span class="count">12</span></a></li>
+                            <li><a href="#" class="category-link">Tendencias <span class="count">3</span></a></li>
+                            <li><a href="#" class="category-link">Consejos <span class="count">4</span></a></li>
+                            <li><a href="#" class="category-link">Novedades <span class="count">2</span></a></li>
+                            <li><a href="#" class="category-link">Guías <span class="count">2</span></a></li>
+                            <li><a href="#" class="category-link">Historia <span class="count">1</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Popular Posts -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Populares</h3>
+                        <div class="popular-posts">
+                            <article class="popular-post">
+                                <div class="post-image">
+                                    <div class="image-placeholder small"></div>
+                                </div>
+                                <div class="post-info">
+                                    <h4><a href="#">Cómo Elegir Perfume para Regalar</a></h4>
+                                    <span class="post-date">10 Oct, 2024</span>
+                                </div>
+                            </article>
+                            <article class="popular-post">
+                                <div class="post-image">
+                                    <div class="image-placeholder small"></div>
+                                </div>
+                                <div class="post-info">
+                                    <h4><a href="#">Diferencias entre EDT, EDP y Parfum</a></h4>
+                                    <span class="post-date">5 Oct, 2024</span>
+                                </div>
+                            </article>
+                            <article class="popular-post">
+                                <div class="post-image">
+                                    <div class="image-placeholder small"></div>
+                                </div>
+                                <div class="post-info">
+                                    <h4><a href="#">Fragancias para Cada Estación</a></h4>
+                                    <span class="post-date">28 Sep, 2024</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3 class="widget-title">Newsletter Élite</h3>
+                        <p>Recibe las últimas noticias y tendencias en perfumería directamente en tu email.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="tu@email.com" class="newsletter-input">
+                            <button type="submit" class="btn btn-accent">Suscribirse</button>
+                        </form>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Etiquetas</h3>
+                        <div class="tags-cloud">
+                            <a href="#" class="tag">Fragancias</a>
+                            <a href="#" class="tag">Consejos</a>
+                            <a href="#" class="tag">Tendencias 2024</a>
+                            <a href="#" class="tag">Perfumería</a>
+                            <a href="#" class="tag">Lanzamientos</a>
+                            <a href="#" class="tag">Duración</a>
+                            <a href="#" class="tag">Aplicación</a>
+                            <a href="#" class="tag">Historia</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-link prev">Anterior</a>
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <span class="page-dots">...</span>
+                <a href="#" class="page-link">6</a>
+                <a href="#" class="page-link next">Siguiente</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="blog-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para Encontrar tu Fragancia Perfecta?</h2>
+                <p>Explora nuestra colección exclusiva y deja que nuestros expertos te guíen hacia tu próxima fragancia signature</p>
+                <div class="cta-buttons">
+                    <a href="{% url 'shop:perfume_list' %}" class="btn btn-accent">Ver Catálogo</a>
+                    <a href="{% url 'about:about' %}" class="btn btn-secondary">Conoce Más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+/* Blog Page Styles */
+.blog-page {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.blog-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #2d2d2d 100%);
+    color: var(--color-white);
+    text-align: center;
+    padding: 5rem 2rem;
+    margin-bottom: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(201,169,97,0.1)"/></svg>');
+    background-size: cover;
+    opacity: 0.3;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Featured Article */
+.featured-article {
+    margin-bottom: 4rem;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: var(--color-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.featured-image {
+    position: relative;
+    min-height: 400px;
+}
+
+.featured-image .image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-border) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+.article-badge {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: var(--color-secondary);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.featured-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.article-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.category {
+    background: var(--color-light);
+    color: var(--color-accent);
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.date {
+    color: var(--color-text-light);
+}
+
+.article-title {
+    font-size: 2.2rem;
+    font-weight: 300;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.article-excerpt {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+.article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.read-more {
+    color: var(--color-secondary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.read-more:hover {
+    color: var(--color-accent);
+    transform: translateX(5px);
+}
+
+/* Blog Layout */
+.blog-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Articles Grid */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.article-card {
+    background: var(--color-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+}
+
+.article-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.article-image {
+    position: relative;
+    height: 200px;
+}
+
+.article-image .image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-border) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.category-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--color-white);
+    color: var(--color-accent);
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+.article-info {
+    padding: 1.5rem;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.read-time {
+    color: var(--color-text-light);
+}
+
+.article-card .article-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.article-card .article-excerpt {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.article-card .article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+}
+
+.article-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+/* Sidebar */
+.blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-widget {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.widget-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    position: relative;
+}
+
+.widget-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--color-secondary);
+}
+
+.categories-list {
+    list-style: none;
+}
+
+.category-link {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+}
+
+.category-link:hover, .category-link.active {
+    color: var(--color-secondary);
+}
+
+.category-link .count {
+    background: var(--color-light);
+    color: var(--color-text-light);
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.popular-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.popular-post {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.popular-post .post-image {
+    flex-shrink: 0;
+}
+
+.popular-post .image-placeholder.small {
+    width: 80px;
+    height: 60px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-border) 100%);
+}
+
+.popular-post .post-info h4 {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.popular-post .post-info h4 a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.popular-post .post-info h4 a:hover {
+    color: var(--color-secondary);
+}
+
+.post-date {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+
+.newsletter-widget {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #2d2d2d 100%);
+    color: var(--color-white);
+}
+
+.newsletter-widget .widget-title {
+    color: var(--color-white);
+}
+
+.newsletter-widget p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.newsletter-input {
+    padding: 0.875rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--color-white);
+}
+
+.newsletter-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.3);
+}
+
+.tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: var(--color-light);
+    color: var(--color-text);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.tag:hover {
+    background: var(--color-secondary);
+    color: var(--color-white);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 3rem 0;
+}
+
+.page-link {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: var(--transition);
+    min-width: 44px;
+    text-align: center;
+}
+
+.page-link:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.page-link.active {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.page-dots {
+    padding: 0.75rem 0.5rem;
+    color: var(--color-text-light);
+}
+
+/* CTA Section */
+.blog-cta {
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-white) 100%);
+    padding: 5rem 0;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 4rem;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-text-light);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .blog-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .featured-content {
+        padding: 2rem;
+    }
+    
+    .article-title {
+        font-size: 1.8rem;
+    }
+    
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-hero {
+        padding: 3rem 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .featured-content {
+        padding: 1.5rem;
+    }
+    
+    .article-footer {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Article card interactions
+    const articleCards = document.querySelectorAll('.article-card');
+    
+    articleCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            
+            // Simulate subscription
+            alert(`¡Gracias por suscribirte con ${email}! Recibirás nuestras últimas novedades pronto.`);
+            this.reset();
+        });
+    }
+    
+    // Category filter (simulated)
+    const categoryLinks = document.querySelectorAll('.category-link');
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links
+            categoryLinks.forEach(l => l.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Here you would typically filter articles
+            console.log('Filtering by category:', this.textContent);
+        });
+    });
+});
+</script>
+{% endblock %}

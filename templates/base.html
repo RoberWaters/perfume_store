@@ -14,6 +14,9 @@
             <ul>
                 <li><a href="{% url 'shop:home' %}">Inicio</a></li>
                 <li><a href="{% url 'shop:perfume_list' %}">Catálogo</a></li>
+                <li><a href="{% url 'about:faq' %}">Preguntas Frecuentes</a></li>
+                <li><a href="{% url 'about:about' %}">¿Quiénes somos?</a></li>
+                <li><a href="{% url 'about:blog' %}">Blog</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'shop:cart' %}">🛒 Carrito ({{ cart_count }})</a></li>
                     <li><a href="{% url 'orders:order_list' %}">Mis Pedidos</a></li>

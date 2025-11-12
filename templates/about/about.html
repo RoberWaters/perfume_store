@@ -1,0 +1,538 @@
+{% extends 'base.html' %}
+
+{% block title %}Quiénes Somos - Perfume Shop{% endblock %}
+
+{% block content %}
+<div class="about-page">
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>Quiénes Somos</h1>
+            <p>Descubre la esencia de Perfumería Élite, donde la elegancia y la pasión por las fragancias se encuentran</p>
+        </div>
+    </section>
+
+    <!-- Historia Section -->
+    <section class="about-section" id="historia">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestra Historia</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="content-grid">
+                <div class="content-text">
+                    <p>Perfumería Élite nació en 2025 con una visión clara: ofrecer fragancias exclusivas que capturen la esencia única de cada persona. Fundada por Roberto Valerio, un apasionado de la perfumería con más de 7 años de experiencia en la industria del lujo.</p>
+                    <p>Lo que comenzó como una pequeña boutique en el corazón de Tegucigalpa, hoy se ha convertido en el destino preferido para los amantes de las fragancias en Honduras, expandiéndonos a nivel nacional con nuestra tienda online.</p>
+                    <p>Nuestro compromiso con la calidad y la autenticidad nos ha permitido colaborar con las casas perfumeras más prestigiosas del mundo, trayendo a nuestros clientes creaciones olfativas que inspiran y perduran.</p>
+                </div>
+                <div class="content-image">
+                    <div class="image-placeholder">
+                        <span>Imagen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión y Visión Section -->
+    <section class="mission-vision-section">
+        <div class="container">
+            <div class="mv-grid">
+                <!-- Misión -->
+                <div class="mv-card" id="mision">
+                    <div class="mv-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48">
+                            <path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.1 16,12.7V16.5C16,17.1 15.4,17.7 14.8,17.7H9.2C8.6,17.7 8,17.1 8,16.5V12.6C8,12 8.6,11.4 9.2,11.4H9.3V10C9.3,8.6 10.7,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11.5H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z"/>
+                        </svg>
+                    </div>
+                    <h3>Misión</h3>
+                    <p>Ofrecer una experiencia sensorial única a través de fragancias exclusivas y de alta calidad, superando las expectativas de nuestros clientes con un servicio personalizado y asesoramiento experto que refleje elegancia y sofisticación.</p>
+                </div>
+
+                <!-- Visión -->
+                <div class="mv-card" id="vision">
+                    <div class="mv-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48">
+                            <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                        </svg>
+                    </div>
+                    <h3>Visión</h3>
+                    <p>Ser la perfumería de referencia en Centroamérica, reconocida por nuestra excelencia en la selección de fragancias, innovación en experiencias olfativas y compromiso con la sostenibilidad, expandiendo nuestra presencia para llevar el lujo accesible a más hogares.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores Section -->
+    <section class="values-section" id="valores">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Valores</h2>
+                <div class="divider"></div>
+                <p>Principios que guían cada aspecto de nuestro negocio</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" width="40" height="40">
+                            <path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                        </svg>
+                    </div>
+                    <h4>Excelencia</h4>
+                    <p>Buscamos la perfección en cada detalle, desde la selección de fragancias hasta la atención al cliente.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" width="40" height="40">
+                            <path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M17.13,17C15.92,18.85 14.11,20.24 12,20.92C9.89,20.24 8.08,18.85 6.87,17C6.53,16.5 6.24,16 6,15.47C6,13.82 8.71,12.47 12,12.47C15.29,12.47 18,13.79 18,15.47C17.76,16 17.47,16.5 17.13,17Z" />
+                        </svg>
+                    </div>
+                    <h4>Confianza</h4>
+                    <p>Construimos relaciones duraderas basadas en la transparencia y honestidad con nuestros clientes.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" width="40" height="40">
+                            <path fill="currentColor" d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
+                        </svg>
+                    </div>
+                    <h4>Innovación</h4>
+                    <p>Exploramos constantemente nuevas tendencias y técnicas para ofrecer experiencias olfativas únicas.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" width="40" height="40">
+                            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A4,4 0 0,1 8,16A4,4 0 0,1 12,12A4,4 0 0,0 16,8A4,4 0 0,0 12,4M12,6.5A1.5,1.5 0 0,1 13.5,8A1.5,1.5 0 0,1 12,9.5A1.5,1.5 0 0,1 10.5,8A1.5,1.5 0 0,1 12,6.5M12,14.5A1.5,1.5 0 0,0 10.5,16A1.5,1.5 0 0,0 12,17.5A1.5,1.5 0 0,0 13.5,16A1.5,1.5 0 0,0 12,14.5Z" />
+                        </svg>
+                    </div>
+                    <h4>Sostenibilidad</h4>
+                    <p>Nos comprometemos con prácticas responsables que respeten el medio ambiente y las comunidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestro Equipo</h2>
+                <div class="divider"></div>
+                <p>Expertos apasionados por las fragancias</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <div class="image-placeholder">
+                            <span>Foto del equipo</span>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Roberto Valerio</h4>
+                        <p class="team-role">Fundador & Perfumista Principal</p>
+                        <p>Con más de 7 años de experiencia en la industria del lujo, Roberto Valerio combina su formación en química aromática con un olfato excepcional para seleccionar las fragancias más exclusivas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Descubre Tu Fragancia Perfecta</h2>
+                <p>Permítenos guiarte en el viaje de encontrar la esencia que mejor representa tu personalidad</p>
+                <div class="cta-buttons">
+                    <a href="{% url 'shop:perfume_list' %}" class="btn btn-accent">Explorar Catálogo</a>
+                    <a href="{% url 'shop:home' %}" class="btn btn-secondary">Volver al Inicio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+/* About Page Styles */
+.about-page {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.about-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #2d2d2d 100%);
+    color: var(--color-white);
+    text-align: center;
+    padding: 5rem 2rem;
+    margin-bottom: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(201,169,97,0.1)"/></svg>');
+    background-size: cover;
+    opacity: 0.3;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    opacity: 0.9;
+    animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.about-section {
+    padding: 4rem 0;
+    background: var(--color-white);
+    border-radius: 16px;
+    margin-bottom: 4rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.content-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.content-image {
+    display: flex;
+    justify-content: center;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-border) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+/* Mission & Vision Section */
+.mission-vision-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-white) 100%);
+    margin-bottom: 4rem;
+}
+
+.mv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.mv-card {
+    background: var(--color-white);
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.mv-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+}
+
+.mv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.mv-icon {
+    margin-bottom: 1.5rem;
+    color: var(--color-secondary);
+}
+
+.mv-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    font-weight: 400;
+}
+
+.mv-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+/* Values Section */
+.values-section {
+    padding: 4rem 0;
+    background: var(--color-white);
+    margin-bottom: 4rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.value-card {
+    background: var(--color-light);
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid var(--color-border);
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-secondary);
+}
+
+.value-icon {
+    margin-bottom: 1.5rem;
+    color: var(--color-secondary);
+}
+
+.value-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.value-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+}
+
+/* Team Section */
+.team-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-white) 100%);
+    margin-bottom: 4rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.team-card {
+    background: var(--color-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.team-image {
+    height: 250px;
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-border) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-info {
+    padding: 2rem;
+}
+
+.team-info h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+}
+
+.team-role {
+    color: var(--color-secondary);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.team-info p:last-child {
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.about-cta {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #2d2d2d 100%);
+    color: var(--color-white);
+    padding: 5rem 0;
+    text-align: center;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .content-grid {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .mv-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .about-section, .mission-vision-section, .values-section, .team-section {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .mv-card, .value-card {
+        padding: 2rem 1rem;
+    }
+}
+</style>
+{% endblock %}
