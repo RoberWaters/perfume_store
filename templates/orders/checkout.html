@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout - Perfume Shop{% endblock %}
+
+{% block content %}
+<h1>Finalizar Compra</h1>
+
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <h2>Dirección de Envío</h2>
+            <div class="form-group">
+                <label>Dirección:</label>
+                <input type="text" name="address" required>
+            </div>
+            <div class="form-group">
+                <label>Ciudad:</label>
+                <input type="text" name="city" required>
+            </div>
+            <div class="form-group">
+                <label>Departamento:</label>
+                <input type="text" name="state" required>
+            </div>
+            <div class="form-group">
+                <label>Código Postal:</label>
+                <input type="text" name="postal_code" required>
+            </div>
+            
+            <h2 style="margin-top: 2rem;">Método de Pago</h2>
+            <div class="form-group">
+                <label>Método:</label>
+                <select name="payment_method" required>
+                    <option value="Efectivo">Efectivo contra entrega</option>
+                    <option value="Tarjeta">Tarjeta de crédito/débito</option>
+                    <option value="Transferencia">Transferencia bancaria</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Notas (opcional):</label>
+                <textarea name="notes" rows="3"></textarea>
+            </div>
+            
+            <button type="submit" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Confirmar Pedido</button>
+        </form>
+    </div>
+    
+    <div>
+        <h2>Resumen del Pedido</h2>
+        <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 4px;">
+            {% for item in cart.items.all %}
+            <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
+                <p><strong>{{ item.perfume.name }}</strong></p>
+                <p>{{ item.quantity }} x L{{ item.perfume.price }}</p>
+                <p style="text-align: right; font-weight: bold;">L{{ item.get_subtotal }}</p>
+            </div>
+            {% endfor %}
+            <div style="margin-top: 1rem; font-size: 1.3rem;">
+                <strong>Total: L{{ cart.get_total }}</strong>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

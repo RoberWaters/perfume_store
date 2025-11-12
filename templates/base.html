@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Perfume Shop{% endblock %}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        
+        /* Header */
+        header { background: #333; color: #fff; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        nav h1 { font-size: 1.5rem; }
+        nav ul { display: flex; list-style: none; gap: 1rem; }
+        nav a { color: #fff; text-decoration: none; }
+        nav a:hover { color: #ddd; }
+        
+        /* Main */
+        main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        
+        /* Messages */
+        .messages { margin: 1rem 0; }
+        .message { padding: 1rem; margin-bottom: 0.5rem; border-radius: 4px; }
+        .message.success { background: #d4edda; color: #155724; }
+        .message.error { background: #f8d7da; color: #721c24; }
+        .message.warning { background: #fff3cd; color: #856404; }
+        
+        /* Products Grid */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem; }
+        .product-card { border: 1px solid #ddd; padding: 1rem; border-radius: 8px; text-align: center; }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; }
+        .product-card h3 { margin: 0.5rem 0; font-size: 1.1rem; }
+        .product-card .price { font-size: 1.3rem; color: #2c5f2d; font-weight: bold; margin: 0.5rem 0; }
+        
+        /* Buttons */
+        .btn { display: inline-block; padding: 0.5rem 1rem; background: #2c5f2d; color: #fff; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; }
+        .btn:hover { background: #1e4620; }
+        .btn-secondary { background: #666; }
+        .btn-secondary:hover { background: #444; }
+        .btn-danger { background: #dc3545; }
+        .btn-danger:hover { background: #c82333; }
+        
+        /* Forms */
+        form { max-width: 500px; }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        input, textarea, select { width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; }
+        
+        /* Cart */
+        .cart-item { display: flex; justify-content: space-between; align-items: center; border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; border-radius: 4px; }
+        .cart-item-info { flex: 1; }
+        .cart-actions { display: flex; gap: 0.5rem; align-items: center; }
+        
+        /* Footer */
+        footer { background: #333; color: #fff; text-align: center; padding: 2rem; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1><a href="{% url 'shop:home' %}" style="color: #fff; text-decoration: none;">🌸 Perfume Shop</a></h1>
+            <ul>
+                <li><a href="{% url 'shop:home' %}">Inicio</a></li>
+                <li><a href="{% url 'shop:perfume_list' %}">Productos</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'shop:cart' %}">🛒 Carrito ({{ cart_count }})</a></li>
+                    <li><a href="{% url 'orders:order_list' %}">Mis Pedidos</a></li>
+                    <li><a href="{% url 'accounts:profile' %}">Perfil</a></li>
+                    <li><a href="{% url 'accounts:logout' %}">Salir</a></li>
+                {% else %}
+                    <li><a href="{% url 'accounts:login' %}">Iniciar Sesión</a></li>
+                    <li><a href="{% url 'accounts:register' %}">Registrarse</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Perfume Shop Honduras. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

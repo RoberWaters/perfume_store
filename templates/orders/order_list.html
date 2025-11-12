@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Mis Pedidos - Perfume Shop{% endblock %}
+
+{% block content %}
+<h1>Mis Pedidos</h1>
+
+{% if orders %}
+<div style="margin: 2rem 0;">
+    {% for order in orders %}
+    <div style="border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; border-radius: 4px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h3>{{ order.order_number }}</h3>
+                <p>Fecha: {{ order.created_at|date:"d/m/Y H:i" }}</p>
+                <p>Total: L{{ order.total_amount }}</p>
+            </div>
+            <div style="text-align: right;">
+                <span style="padding: 0.5rem 1rem; background: 
+                    {% if order.status == 'Entregado' %}#d4edda
+                    {% elif order.status == 'Cancelado' %}#f8d7da
+                    {% elif order.status == 'Enviado' %}#cfe2ff
+                    {% else %}#fff3cd{% endif %}; border-radius: 4px;">
+                    {{ order.status }}
+                </span>
+                <br><br>
+                <a href="{% url 'orders:order_detail' order.order_number %}" class="btn">Ver Detalles</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No tienes pedidos todavía.</p>
+<a href="{% url 'shop:perfume_list' %}" class="btn">Ir a Comprar</a>
+{% endif %}
+{% endblock %}

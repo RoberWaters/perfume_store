@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Pedido {{ order.order_number }} - Perfume Shop{% endblock %}
+
+{% block content %}
+<h1>Detalle del Pedido</h1>
+
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin: 2rem 0;">
+    <div>
+        <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+            <h2>Información del Pedido</h2>
+            <p><strong>Número:</strong> {{ order.order_number }}</p>
+            <p><strong>Fecha:</strong> {{ order.created_at|date:"d/m/Y H:i" }}</p>
+            <p><strong>Estado:</strong> <span style="padding: 0.3rem 0.8rem; background: #fff3cd; border-radius: 4px;">{{ order.status }}</span></p>
+            <p><strong>Método de Pago:</strong> {{ order.payment_method }}</p>
+        </div>
+        
+        <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 4px;">
+            <h2>Dirección de Envío</h2>
+            <p>{{ order.shipping_address }}</p>
+            <p>{{ order.shipping_city }}, {{ order.shipping_state }}</p>
+            <p>{{ order.shipping_postal_code }}</p>
+        </div>
+        
+        {% if order.notes %}
+        <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 4px; margin-top: 1rem;">
+            <h3>Notas:</h3>
+            <p>{{ order.notes }}</p>
+        </div>
+        {% endif %}
+    </div>
+    
+    <div>
+        <h2>Productos</h2>
+        <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 4px;">
+            {% for item in order.items.all %}
+            <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
+                <p><strong>{{ item.perfume.name }}</strong></p>
+                <p>{{ item.quantity }} x L{{ item.price }}</p>
+                <p style="text-align: right; font-weight: bold;">L{{ item.subtotal }}</p>
+            </div>
+            {% endfor %}
+            <div style="margin-top: 1rem; font-size: 1.3rem; padding-top: 1rem; border-top: 2px solid #333;">
+                <strong>Total: L{{ order.total_amount }}</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="{% url 'orders:order_list' %}" class="btn btn-secondary">Volver a Mis Pedidos</a>
+{% endblock %}

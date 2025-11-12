@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Registro - Perfume Shop{% endblock %}
+
+{% block content %}
+<div style="max-width: 500px; margin: 0 auto;">
+    <h1>Crear Cuenta</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn" style="width: 100%;">Registrarse</button>
+    </form>
+    
+    <p style="margin-top: 1rem; text-align: center;">
+        ¿Ya tienes cuenta? <a href="{% url 'accounts:login' %}">Iniciar Sesión</a>
+    </p>
+</div>
+{% endblock %}
