@@ -11,9 +11,19 @@ def register(request):
         if form.is_valid():
             user = form.save()
             UserProfile.objects.create(user=user)
-            login(request, user)
-            messages.success(request, 'Cuenta creada exitosamente')
-            return redirect('shop:home')
+            # Autenticar al usuario con el backend correcto
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Cuenta creada exitosamente')
+                return redirect('shop:home')
+        else:
+            # Mostrar errores del formulario al usuario
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f'{error}')
     else:
         form = UserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
