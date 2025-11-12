@@ -314,21 +314,26 @@ main {
 
 .product-image-container {
     width: 100%;
-    height: 320px;
+    height: 500px;
     overflow: hidden;
     background: linear-gradient(135deg, #f5f5f5 0%, #e8e5e0 100%);
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-card img {
-    width: 100%;
+    width: auto;
     height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    object-fit: contain;
     transition: var(--transition);
+    padding: 0.5rem;
 }
 
 .product-card:hover img {
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 .product-card-placeholder {
@@ -589,6 +594,78 @@ main {
 }
 
 /* ===========================
+   BUSCADOR
+   =========================== */
+
+.search-container {
+    margin: 2rem auto 2rem;
+    max-width: 600px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.search-form {
+    width: 100%;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--color-white);
+    border-radius: 50px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.search-wrapper:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.search-wrapper:focus-within {
+    box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.2);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    background: transparent;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--color-text-light);
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+    border: none;
+    padding: 1rem 1.75rem;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-white);
+}
+
+.search-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 100%);
+}
+
+.search-button:active {
+    transform: scale(0.95);
+}
+
+.search-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ===========================
    FILTROS
    =========================== */
 
@@ -742,16 +819,25 @@ select:focus {
     overflow: hidden;
     box-shadow: var(--shadow-md);
     animation: slideInLeft 0.6s ease-out;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e5e0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
 }
 
 .product-detail-image img {
     width: 100%;
+    height: 100%;
+    max-height: 800px;
     display: block;
+    object-fit: contain;
     transition: transform 0.5s ease;
+    padding: 2rem;
 }
 
 .product-detail-image:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .product-detail-info {
@@ -893,6 +979,12 @@ footer p:hover {
    RESPONSIVE
    =========================== */
 
+@media (max-width: 1024px) {
+    .product-image-container {
+        height: 450px;
+    }
+}
+
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -915,6 +1007,23 @@ footer p:hover {
         gap: 2rem;
     }
 
+    .product-detail-image {
+        min-height: 400px;
+    }
+
+    .product-detail-image img {
+        max-height: 500px;
+        padding: 1rem;
+    }
+
+    .product-image-container {
+        height: 400px;
+    }
+
+    .product-card img {
+        padding: 0.5rem;
+    }
+
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -935,6 +1044,20 @@ footer p:hover {
 
     h2 {
         font-size: 1.75rem;
+    }
+
+    .search-container {
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .search-input {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .search-button {
+        padding: 0.875rem 1.5rem;
     }
 }
 

@@ -12,9 +12,17 @@ class BrandAdmin(admin.ModelAdmin):
 
 @admin.register(Perfume)
 class PerfumeAdmin(admin.ModelAdmin):
-    list_display = ['name', 'brand', 'category', 'price', 'stock_quantity', 'is_active']
+    list_display = ['image_preview', 'name', 'brand', 'category', 'price', 'stock_quantity', 'is_active']
     list_filter = ['brand', 'category', 'gender', 'is_active']
     prepopulated_fields = {'slug': ('name',)}
+    readonly_fields = ['image_preview']
+
+    def image_preview(self, obj):
+        if obj.image:
+            return f'<img src="{obj.image.url}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;" />'
+        return "Sin imagen"
+    image_preview.short_description = 'Vista Previa'
+    image_preview.allow_tags = True
 
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):

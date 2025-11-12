@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.db.models import Q
 from .models import Perfume, Category, Brand, Cart, CartItem, Review
 
 def home(request):
@@ -16,21 +17,30 @@ def perfume_list(request):
     category_slug = request.GET.get('category')
     brand_id = request.GET.get('brand')
     gender = request.GET.get('gender')
-    
+    search_query = request.GET.get('q', '').strip()
+
+    if search_query:
+        perfumes = perfumes.filter(
+            Q(name__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(brand__name__icontains=search_query)
+        )
+
     if category_slug:
         perfumes = perfumes.filter(category__slug=category_slug)
     if brand_id:
         perfumes = perfumes.filter(brand_id=brand_id)
     if gender:
         perfumes = perfumes.filter(gender=gender)
-    
+
     categories = Category.objects.filter(is_active=True)
     brands = Brand.objects.filter(is_active=True)
-    
+
     return render(request, 'shop/perfume_list.html', {
         'perfumes': perfumes,
         'categories': categories,
-        'brands': brands
+        'brands': brands,
+        'search_query': search_query
     })
 
 def perfume_detail(request, slug):

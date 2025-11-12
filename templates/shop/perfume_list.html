@@ -5,9 +5,31 @@
 {% block content %}
 <h1 style="text-align: center; margin-bottom: 2rem;">Catálogo de Fragancias</h1>
 
+<div class="search-container">
+    <form method="get" class="search-form">
+        <div class="search-wrapper">
+            <input type="text" name="q" class="search-input" placeholder="Buscar perfumes, marcas..." value="{{ search_query }}">
+            <button type="submit" class="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+        </div>
+    </form>
+    {% if search_query %}
+    <p style="text-align: center; margin-top: 1rem; color: var(--color-text-light);">
+        Resultados para: <strong style="color: var(--color-secondary);">"{{ search_query }}"</strong>
+    </p>
+    {% endif %}
+</div>
+
 <div class="filters-container">
     <h3>Filtrar Productos</h3>
     <form method="get" class="filters-form">
+        {% if search_query %}
+        <input type="hidden" name="q" value="{{ search_query }}">
+        {% endif %}
         <div class="form-group" style="margin-bottom: 0; min-width: 200px;">
             <label>Categoría</label>
             <select name="category">
