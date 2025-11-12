@@ -1,68 +1,83 @@
 {% extends 'base.html' %}
 
-{% block title %}Productos - Perfume Shop{% endblock %}
+{% block title %}Catálogo - Perfumería Élite{% endblock %}
 
 {% block content %}
-<h1>Nuestros Perfumes</h1>
+<h1 style="text-align: center; margin-bottom: 2rem;">Catálogo de Fragancias</h1>
 
-<div style="margin: 2rem 0; padding: 1rem; background: #f5f5f5; border-radius: 4px;">
-    <h3>Filtros</h3>
-    <form method="get" style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <div>
-            <label>Categoría:</label>
+<div class="filters-container">
+    <h3>Filtrar Productos</h3>
+    <form method="get" class="filters-form">
+        <div class="form-group" style="margin-bottom: 0; min-width: 200px;">
+            <label>Categoría</label>
             <select name="category">
-                <option value="">Todas</option>
+                <option value="">Todas las categorías</option>
                 {% for cat in categories %}
-                <option value="{{ cat.slug }}">{{ cat.name }}</option>
+                <option value="{{ cat.slug }}" {% if request.GET.category == cat.slug %}selected{% endif %}>
+                    {{ cat.name }}
+                </option>
                 {% endfor %}
             </select>
         </div>
-        <div>
-            <label>Marca:</label>
+        <div class="form-group" style="margin-bottom: 0; min-width: 200px;">
+            <label>Marca</label>
             <select name="brand">
-                <option value="">Todas</option>
+                <option value="">Todas las marcas</option>
                 {% for brand in brands %}
-                <option value="{{ brand.id }}">{{ brand.name }}</option>
+                <option value="{{ brand.id }}" {% if request.GET.brand == brand.id|stringformat:"s" %}selected{% endif %}>
+                    {{ brand.name }}
+                </option>
                 {% endfor %}
             </select>
         </div>
-        <div>
-            <label>Género:</label>
+        <div class="form-group" style="margin-bottom: 0; min-width: 180px;">
+            <label>Género</label>
             <select name="gender">
                 <option value="">Todos</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-                <option value="Unisex">Unisex</option>
+                <option value="Masculino" {% if request.GET.gender == "Masculino" %}selected{% endif %}>Masculino</option>
+                <option value="Femenino" {% if request.GET.gender == "Femenino" %}selected{% endif %}>Femenino</option>
+                <option value="Unisex" {% if request.GET.gender == "Unisex" %}selected{% endif %}>Unisex</option>
             </select>
         </div>
-        <button type="submit" class="btn">Filtrar</button>
+        <div style="align-self: flex-end;">
+            <button type="submit" class="btn btn-accent">Aplicar Filtros</button>
+        </div>
     </form>
 </div>
 
 <div class="product-grid">
     {% for perfume in perfumes %}
     <div class="product-card">
-        {% if perfume.image %}
-        <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}">
-        {% else %}
-        <div style="width: 100%; height: 200px; background: #eee; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
-            <span style="font-size: 3rem;">🌸</span>
-        </div>
+        {% if perfume.featured %}
+        <span class="product-badge">DESTACADO</span>
         {% endif %}
-        <h3>{{ perfume.name }}</h3>
-        <p>{{ perfume.brand.name }} - {{ perfume.volume_ml }}ml</p>
-        <p class="price">L{{ perfume.price }}</p>
-        <p style="color: {% if perfume.stock_quantity > 0 %}green{% else %}red{% endif %};">
-            {% if perfume.stock_quantity > 0 %}
-                En stock: {{ perfume.stock_quantity }}
+        <div class="product-image-container">
+            {% if perfume.image %}
+            <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}">
             {% else %}
-                Agotado
+            <div class="product-card-placeholder">
+                <span>✨</span>
+            </div>
             {% endif %}
-        </p>
-        <a href="{% url 'shop:perfume_detail' perfume.slug %}" class="btn">Ver Detalles</a>
+        </div>
+        <div class="product-info">
+            <h3>{{ perfume.name }}</h3>
+            <p class="product-brand">{{ perfume.brand.name }} • {{ perfume.volume_ml }}ml</p>
+            <p class="product-price">L{{ perfume.price }}</p>
+            <p class="product-stock {% if perfume.stock_quantity > 0 %}in-stock{% else %}out-of-stock{% endif %}">
+                {% if perfume.stock_quantity > 0 %}
+                    ✓ Disponible ({{ perfume.stock_quantity }})
+                {% else %}
+                    ✗ Agotado
+                {% endif %}
+            </p>
+            <a href="{% url 'shop:perfume_detail' perfume.slug %}" class="btn">Ver Detalles</a>
+        </div>
     </div>
     {% empty %}
-    <p>No se encontraron perfumes.</p>
+    <p style="text-align: center; grid-column: 1/-1; color: var(--color-text-light); padding: 3rem; font-size: 1.1rem;">
+        No se encontraron perfumes que coincidan con los filtros seleccionados.
+    </p>
     {% endfor %}
 </div>
 {% endblock %}

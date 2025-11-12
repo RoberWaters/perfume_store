@@ -1,86 +1,115 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ perfume.name }} - Perfume Shop{% endblock %}
+{% block title %}{{ perfume.name }} - Perfumería Élite{% endblock %}
 
 {% block content %}
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-    <div>
+<div class="product-detail-grid">
+    <div class="product-detail-image">
         {% if perfume.image %}
-        <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}" style="width: 100%; border-radius: 8px;">
+        <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}">
         {% else %}
-        <div style="width: 100%; height: 400px; background: #eee; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-            <span style="font-size: 5rem;">🌸</span>
+        <div style="width: 100%; height: 500px; background: linear-gradient(135deg, var(--color-light) 0%, var(--color-border) 100%); display: flex; align-items: center; justify-content: center; border-radius: 12px;">
+            <span style="font-size: 6rem;">✨</span>
         </div>
         {% endif %}
     </div>
-    
-    <div>
+
+    <div class="product-detail-info">
         <h1>{{ perfume.name }}</h1>
-        <h3 style="color: #666;">{{ perfume.brand.name }}</h3>
-        <p style="font-size: 2rem; color: #2c5f2d; margin: 1rem 0;">L{{ perfume.price }}</p>
-        
-        <div style="margin: 1rem 0;">
-            <p><strong>Volumen:</strong> {{ perfume.volume_ml }}ml</p>
+        <h3 class="product-detail-brand">{{ perfume.brand.name }}</h3>
+        <p class="product-detail-price">L{{ perfume.price }}</p>
+
+        <div class="product-specs">
+            <p><strong>Volumen:</strong> {{ perfume.volume_ml }} ml</p>
             <p><strong>Género:</strong> {{ perfume.gender }}</p>
             <p><strong>Categoría:</strong> {{ perfume.category.name }}</p>
             {% if perfume.fragrance_family %}
             <p><strong>Familia Olfativa:</strong> {{ perfume.fragrance_family }}</p>
             {% endif %}
-            <p><strong>Stock:</strong> 
-                <span style="color: {% if perfume.stock_quantity > 0 %}green{% else %}red{% endif %};">
-                    {% if perfume.stock_quantity > 0 %}{{ perfume.stock_quantity }} disponibles{% else %}Agotado{% endif %}
+            <p>
+                <strong>Disponibilidad:</strong>
+                <span class="product-stock {% if perfume.stock_quantity > 0 %}in-stock{% else %}out-of-stock{% endif %}">
+                    {% if perfume.stock_quantity > 0 %}
+                        ✓ En stock ({{ perfume.stock_quantity }} disponibles)
+                    {% else %}
+                        ✗ Agotado
+                    {% endif %}
                 </span>
             </p>
         </div>
-        
-        <p style="margin: 1rem 0;">{{ perfume.description }}</p>
-        
+
+        {% if perfume.description %}
+        <div class="product-description">
+            <h3 style="margin-bottom: 1rem;">Descripción</h3>
+            <p>{{ perfume.description }}</p>
+        </div>
+        {% endif %}
+
         {% if perfume.stock_quantity > 0 %}
-        <a href="{% url 'shop:add_to_cart' perfume.id %}" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Agregar al Carrito</a>
+        <a href="{% url 'shop:add_to_cart' perfume.id %}" class="btn btn-large btn-accent" style="margin-top: 2rem;">
+            🛒 Agregar al Carrito
+        </a>
         {% else %}
-        <button class="btn" disabled style="background: #999;">Agotado</button>
+        <button class="btn btn-large disabled" disabled style="margin-top: 2rem;">
+            Producto Agotado
+        </button>
         {% endif %}
     </div>
 </div>
 
-<div style="margin-top: 3rem;">
-    <h2>Reseñas</h2>
-    
+<div class="reviews-section">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Reseñas de Clientes</h2>
+
     {% if user.is_authenticated %}
-    <form method="post" style="margin: 2rem 0; padding: 1rem; background: #f5f5f5; border-radius: 4px;">
-        {% csrf_token %}
-        <h3>Dejar una reseña</h3>
-        <div class="form-group">
-            <label>Calificación:</label>
-            <select name="rating" required>
-                <option value="">Selecciona...</option>
-                <option value="5">⭐⭐⭐⭐⭐ (5)</option>
-                <option value="4">⭐⭐⭐⭐ (4)</option>
-                <option value="3">⭐⭐⭐ (3)</option>
-                <option value="2">⭐⭐ (2)</option>
-                <option value="1">⭐ (1)</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Comentario:</label>
-            <textarea name="comment" rows="4"></textarea>
-        </div>
-        <button type="submit" class="btn">Enviar Reseña</button>
-    </form>
-    {% endif %}
-    
-    <div>
-        {% for review in reviews %}
-        <div style="border: 1px solid #ddd; padding: 1rem; margin: 1rem 0; border-radius: 4px;">
-            <div style="display: flex; justify-content: space-between;">
-                <strong>{{ review.user.username }}</strong>
-                <span>{{ review.rating }}⭐</span>
+    <div class="review-form">
+        <h3 style="margin-bottom: 1.5rem;">Comparte tu experiencia</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Calificación</label>
+                <select name="rating" required>
+                    <option value="">Selecciona tu calificación...</option>
+                    <option value="5">⭐⭐⭐⭐⭐ Excelente</option>
+                    <option value="4">⭐⭐⭐⭐ Muy bueno</option>
+                    <option value="3">⭐⭐⭐ Bueno</option>
+                    <option value="2">⭐⭐ Regular</option>
+                    <option value="1">⭐ Malo</option>
+                </select>
             </div>
-            <p style="margin: 0.5rem 0;">{{ review.comment }}</p>
-            <small style="color: #666;">{{ review.created_at|date:"d/m/Y" }}</small>
+            <div class="form-group">
+                <label>Comentario</label>
+                <textarea name="comment" rows="4" placeholder="Cuéntanos qué te pareció este perfume..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-accent">Publicar Reseña</button>
+        </form>
+    </div>
+    {% else %}
+    <p style="text-align: center; padding: 2rem; background: var(--color-light); border-radius: 12px; margin: 2rem 0;">
+        <a href="{% url 'accounts:login' %}" style="color: var(--color-secondary); text-decoration: underline;">Inicia sesión</a>
+        para dejar una reseña de este producto.
+    </p>
+    {% endif %}
+
+    <div style="margin-top: 3rem;">
+        {% for review in reviews %}
+        <div class="review-card">
+            <div class="review-header">
+                <span class="review-author">{{ review.user.username }}</span>
+                <span class="review-rating">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= review.rating %}⭐{% endif %}
+                    {% endfor %}
+                </span>
+            </div>
+            {% if review.comment %}
+            <p class="review-comment">{{ review.comment }}</p>
+            {% endif %}
+            <small class="review-date">{{ review.created_at|date:"d/m/Y" }}</small>
         </div>
         {% empty %}
-        <p>No hay reseñas todavía.</p>
+        <p style="text-align: center; padding: 3rem; color: var(--color-text-light);">
+            Aún no hay reseñas para este producto. ¡Sé el primero en compartir tu opinión!
+        </p>
         {% endfor %}
     </div>
 </div>

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %}Carrito - Perfume Shop{% endblock %}
+{% block title %}Carrito - Perfumería Élite{% endblock %}
 
 {% block content %}
-<h1>Mi Carrito de Compras</h1>
+<h1 style="text-align: center; margin-bottom: 3rem;">🛒 Mi Carrito de Compras</h1>
 
 {% if cart.items.all %}
 <div style="margin: 2rem 0;">
@@ -11,38 +11,58 @@
     <div class="cart-item">
         <div class="cart-item-info">
             <h3>{{ item.perfume.name }}</h3>
-            <p>{{ item.perfume.brand.name }} - {{ item.perfume.volume_ml }}ml</p>
-            <p style="font-size: 1.2rem; color: #2c5f2d; font-weight: bold;">L{{ item.perfume.price }} c/u</p>
+            <p class="product-brand">{{ item.perfume.brand.name }} • {{ item.perfume.volume_ml }}ml</p>
+            <p style="font-size: 1.1rem; color: var(--color-text-light); margin-top: 0.5rem;">
+                Precio unitario: <span style="color: var(--color-secondary); font-weight: 600;">L{{ item.perfume.price }}</span>
+            </p>
         </div>
         <div class="cart-actions">
             <form method="post" action="{% url 'shop:update_cart' item.id %}" style="display: inline;">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="decrease">
-                <button type="submit" class="btn btn-secondary">-</button>
+                <button type="submit" class="btn btn-secondary" title="Disminuir cantidad">−</button>
             </form>
-            <span style="margin: 0 1rem; font-weight: bold;">{{ item.quantity }}</span>
+            <span class="cart-quantity">{{ item.quantity }}</span>
             <form method="post" action="{% url 'shop:update_cart' item.id %}" style="display: inline;">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="increase">
-                <button type="submit" class="btn btn-secondary">+</button>
+                <button type="submit" class="btn btn-secondary" title="Aumentar cantidad">+</button>
             </form>
-            <span style="margin: 0 1rem; font-size: 1.2rem; font-weight: bold;">L{{ item.get_subtotal }}</span>
+            <span class="cart-subtotal">L{{ item.get_subtotal }}</span>
             <form method="post" action="{% url 'shop:update_cart' item.id %}" style="display: inline;">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="remove">
-                <button type="submit" class="btn btn-danger">Eliminar</button>
+                <button type="submit" class="btn btn-danger" title="Eliminar del carrito">🗑️</button>
             </form>
         </div>
     </div>
     {% endfor %}
 </div>
 
-<div style="text-align: right; margin: 2rem 0; padding: 1rem; background: #f5f5f5; border-radius: 4px;">
-    <h2>Total: L{{ cart.get_total }}</h2>
-    <a href="{% url 'orders:checkout' %}" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem; margin-top: 1rem;">Proceder al Pago</a>
+<div class="cart-total">
+    <h2>Total de la Compra</h2>
+    <p style="font-size: 2.5rem; color: var(--color-secondary); font-weight: 400; margin: 1rem 0;">
+        L{{ cart.get_total }}
+    </p>
+    <a href="{% url 'orders:checkout' %}" class="btn btn-large btn-accent" style="margin-top: 1.5rem;">
+        Proceder al Pago 💳
+    </a>
+    <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--color-text-light);">
+        <a href="{% url 'shop:perfume_list' %}" style="color: var(--color-accent); text-decoration: underline;">
+            ← Continuar comprando
+        </a>
+    </p>
 </div>
 {% else %}
-<p>Tu carrito está vacío.</p>
-<a href="{% url 'shop:perfume_list' %}" class="btn">Ir a Comprar</a>
+<div style="text-align: center; padding: 4rem 2rem; background: var(--color-white); border-radius: 12px; box-shadow: var(--shadow-sm);">
+    <div style="font-size: 5rem; margin-bottom: 1rem; opacity: 0.3;">🛒</div>
+    <h2 style="margin-bottom: 1rem; color: var(--color-text-light);">Tu carrito está vacío</h2>
+    <p style="color: var(--color-text-light); margin-bottom: 2rem;">
+        Descubre nuestra colección de fragancias exclusivas
+    </p>
+    <a href="{% url 'shop:perfume_list' %}" class="btn btn-large btn-accent">
+        Explorar Productos
+    </a>
+</div>
 {% endif %}
 {% endblock %}
