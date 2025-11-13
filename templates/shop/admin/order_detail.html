@@ -96,12 +96,19 @@
 <!-- Cambiar Estado -->
 <div class="admin-panel-card">
     <h3>Actualizar Estado de la Orden</h3>
-    <form method="POST" class="status-update-form">
+    {% if order.status == 'Cancelado' %}
+    <div style="padding: 1.5rem; background: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; margin-bottom: 1.5rem;">
+        <p style="margin: 0; color: #856404; font-weight: 500;">
+            ⚠️ Esta orden ha sido cancelada y no se puede cambiar su estado.
+        </p>
+    </div>
+    {% endif %}
+    <form method="POST" class="status-update-form" id="statusForm" onsubmit="return confirmCancellation(event)">
         {% csrf_token %}
         <div class="form-row">
             <div class="form-group col-8">
                 <label>Nuevo Estado:</label>
-                <select name="status" class="form-control">
+                <select name="status" id="statusSelect" class="form-control" {% if order.status == 'Cancelado' %}disabled{% endif %}>
                     {% for value, label in status_choices %}
                     <option value="{{ value }}" {% if value == order.status %}selected{% endif %}>{{ label }}</option>
                     {% endfor %}
@@ -109,11 +116,40 @@
             </div>
             <div class="form-group col-4">
                 <label>&nbsp;</label>
-                <button type="submit" class="btn btn-accent full-width">🔄 Actualizar Estado</button>
+                <button type="submit" class="btn btn-accent full-width" {% if order.status == 'Cancelado' %}disabled style="opacity: 0.5; cursor: not-allowed;"{% endif %}>
+                    🔄 Actualizar Estado
+                </button>
             </div>
         </div>
     </form>
 </div>
+
+<script>
+function confirmCancellation(event) {
+    const statusSelect = document.getElementById('statusSelect');
+    const selectedStatus = statusSelect.value;
+    const currentStatus = '{{ order.status }}';
+
+    // Si se está cambiando a "Cancelado", pedir confirmación
+    if (selectedStatus === 'Cancelado' && currentStatus !== 'Cancelado') {
+        const confirmed = confirm(
+            '⚠️ ¿Estás seguro de que deseas cancelar esta orden?\n\n' +
+            'Esta acción:\n' +
+            '• Restaurará el stock de todos los perfumes\n' +
+            '• No se podrá revertir\n' +
+            '• El estado no podrá cambiarse después\n\n' +
+            '¿Deseas continuar?'
+        );
+
+        if (!confirmed) {
+            event.preventDefault();
+            return false;
+        }
+    }
+
+    return true;
+}
+</script>
 
 <!-- Historial de Estados -->
 {% if order.status_history.all %}

@@ -15,18 +15,18 @@
 
 <div class="admin-panel-card">
     <div class="table-responsive">
-        <table class="admin-table">
+        <table class="admin-table" style="table-layout: auto;">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Imagen</th>
+                    <th style="width: 50px;">ID</th>
+                    <th style="width: 60px;">Imagen</th>
                     <th>Nombre</th>
-                    <th>Marca</th>
-                    <th>Categoría</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
+                    <th style="width: 140px;">Marca</th>
+                    <th style="width: 130px;">Categoría</th>
+                    <th style="width: 90px;">Precio</th>
+                    <th style="width: 70px;">Stock</th>
+                    <th style="width: 90px;">Estado</th>
+                    <th style="width: 160px;">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,7 +35,7 @@
                     <td>{{ perfume.id }}</td>
                     <td>
                         {% if perfume.image %}
-                        <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}" class="admin-thumb">
+                        <img src="{{ perfume.image }}" alt="{{ perfume.name }}" class="admin-thumb">
                         {% else %}
                         <div class="admin-thumb-placeholder">🧴</div>
                         {% endif %}

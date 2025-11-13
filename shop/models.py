@@ -25,7 +25,7 @@ class Category(models.Model):
 class Brand(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(max_length=500, blank=True)
-    logo = models.ImageField(upload_to='brands/', blank=True, null=True)
+    logo = models.URLField(max_length=500, blank=True, null=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -48,7 +48,7 @@ class Perfume(models.Model):
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     stock_quantity = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='perfumes/', blank=True, null=True)
+    image = models.URLField(max_length=500, blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, null=True, blank=True)
     volume_ml = models.IntegerField(default=100)

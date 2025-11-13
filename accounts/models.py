@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     postal_code = models.CharField(max_length=20, blank=True)
     country = models.CharField(max_length=100, default='Honduras')
     birth_date = models.DateField(null=True, blank=True)
-    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
+    avatar = models.URLField(max_length=500, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

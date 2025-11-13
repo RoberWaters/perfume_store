@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="admin-panel-card">
-    <form method="POST" enctype="multipart/form-data" class="admin-form">
+    <form method="POST" class="admin-form">
         {% csrf_token %}
 
         <div class="form-row">
@@ -87,13 +87,16 @@
             {{ form.image }}
             {% if perfume.image %}
             <div class="current-image">
-                <p>Imagen actual:</p>
-                <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}" style="max-width: 200px; margin-top: 0.5rem;">
+                <p>URL actual: <a href="{{ perfume.image }}" target="_blank">{{ perfume.image }}</a></p>
+                <img src="{{ perfume.image }}" alt="{{ perfume.name }}" style="max-width: 200px; margin-top: 0.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
             </div>
             {% endif %}
             {% if form.image.errors %}
             <div class="form-error">{{ form.image.errors }}</div>
             {% endif %}
+            <small style="color: #666; display: block; margin-top: 0.5rem;">
+                💡 Puedes usar servicios como <a href="https://imgbb.com/" target="_blank">ImgBB</a> o <a href="https://imgur.com/" target="_blank">Imgur</a> para subir imágenes y obtener la URL
+            </small>
         </div>
 
         <div class="form-row">

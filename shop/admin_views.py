@@ -131,8 +131,23 @@ def admin_order_detail(request, pk):
 
     if request.method == 'POST':
         new_status = request.POST.get('status')
+
+        # Validar que la orden no esté ya cancelada
+        if order.status == 'Cancelado':
+            messages.error(request, '❌ No se puede cambiar el estado de una orden cancelada.')
+            return redirect('shop:admin_order_detail', pk=pk)
+
         if new_status and new_status in dict(Order.STATUS_CHOICES):
             old_status = order.status
+
+            # Si se está cancelando la orden, devolver el stock
+            if new_status == 'Cancelado':
+                for item in order.items.all():
+                    perfume = item.perfume
+                    perfume.stock_quantity += item.quantity
+                    perfume.save()
+                    messages.info(request, f'✅ Stock de "{perfume.name}" actualizado: +{item.quantity} unidades')
+
             order.status = new_status
             order.save()
 
@@ -145,7 +160,11 @@ def admin_order_detail(request, pk):
                 changed_by=request.user
             )
 
-            messages.success(request, f'Estado de la orden actualizado a "{new_status}".')
+            if new_status == 'Cancelado':
+                messages.warning(request, f'⚠️ Orden {order.order_number} cancelada. El stock ha sido restaurado.')
+            else:
+                messages.success(request, f'Estado de la orden actualizado a "{new_status}".')
+
             return redirect('shop:admin_order_detail', pk=pk)
 
     context = {
