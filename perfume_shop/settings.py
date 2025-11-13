@@ -1,11 +1,12 @@
 
 import os
 from pathlib import Path
+from decouple import config, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-tu-clave-secreta-aqui-cambiar-en-produccion'
-DEBUG = True
-ALLOWED_HOSTS = []
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-tu-clave-secreta-aqui-cambiar-en-produccion')
+DEBUG = config('DEBUG', default=True, cast=bool)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -62,14 +63,14 @@ WSGI_APPLICATION = 'perfume_shop.wsgi.application'
 
 DATABASES = {
      'default': {
-         'ENGINE': 'mssql',
-         'NAME': 'perfume_shop_db',
-         'USER': 'sa',
-         'PASSWORD': 'NuevaContrasena',
-         'HOST': '192.168.0.2',
-         'PORT': '1433',
+         'ENGINE': config('DB_ENGINE', default='mssql'),
+         'NAME': config('DB_NAME', default='perfume_shop_db'),
+         'USER': config('DB_USER', default='sa'),
+         'PASSWORD': config('DB_PASSWORD'),
+         'HOST': config('DB_HOST', default='192.168.0.2'),
+         'PORT': config('DB_PORT', default='1433'),
          'OPTIONS': {
-             'driver': 'ODBC Driver 17 for SQL Server',
+             'driver': config('DB_DRIVER', default='ODBC Driver 17 for SQL Server'),
          },
      }
 }
