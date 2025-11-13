@@ -1,0 +1,120 @@
+{% extends 'shop/admin/base_admin.html' %}
+
+{% block title %}{% if perfume %}Editar{% else %}Agregar{% endif %} Perfume{% endblock %}
+{% block page_title %}{% if perfume %}Editar Perfume{% else %}Agregar Nuevo Perfume{% endif %}{% endblock %}
+
+{% block content %}
+<div class="admin-panel-card">
+    <form method="POST" enctype="multipart/form-data" class="admin-form">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <div class="form-group col-8">
+                <label>{{ form.name.label }}</label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                <div class="form-error">{{ form.name.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group col-4">
+                <label>{{ form.price.label }}</label>
+                {{ form.price }}
+                {% if form.price.errors %}
+                <div class="form-error">{{ form.price.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>{{ form.description.label }}</label>
+            {{ form.description }}
+            {% if form.description.errors %}
+            <div class="form-error">{{ form.description.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-6">
+                <label>{{ form.category.label }}</label>
+                {{ form.category }}
+                {% if form.category.errors %}
+                <div class="form-error">{{ form.category.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group col-6">
+                <label>{{ form.brand.label }}</label>
+                {{ form.brand }}
+                {% if form.brand.errors %}
+                <div class="form-error">{{ form.brand.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-4">
+                <label>{{ form.stock_quantity.label }}</label>
+                {{ form.stock_quantity }}
+                {% if form.stock_quantity.errors %}
+                <div class="form-error">{{ form.stock_quantity.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group col-4">
+                <label>{{ form.volume_ml.label }}</label>
+                {{ form.volume_ml }}
+                {% if form.volume_ml.errors %}
+                <div class="form-error">{{ form.volume_ml.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group col-4">
+                <label>{{ form.gender.label }}</label>
+                {{ form.gender }}
+                {% if form.gender.errors %}
+                <div class="form-error">{{ form.gender.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>{{ form.fragrance_family.label }}</label>
+            {{ form.fragrance_family }}
+            {% if form.fragrance_family.errors %}
+            <div class="form-error">{{ form.fragrance_family.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label>{{ form.image.label }}</label>
+            {{ form.image }}
+            {% if perfume.image %}
+            <div class="current-image">
+                <p>Imagen actual:</p>
+                <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}" style="max-width: 200px; margin-top: 0.5rem;">
+            </div>
+            {% endif %}
+            {% if form.image.errors %}
+            <div class="form-error">{{ form.image.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-6">
+                <div class="form-check">
+                    {{ form.is_active }}
+                    <label class="form-check-label">{{ form.is_active.label }}</label>
+                </div>
+            </div>
+            <div class="form-group col-6">
+                <div class="form-check">
+                    {{ form.featured }}
+                    <label class="form-check-label">{{ form.featured.label }}</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-accent">💾 Guardar Perfume</button>
+            <a href="{% url 'shop:admin_perfumes_list' %}" class="btn btn-secondary">❌ Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

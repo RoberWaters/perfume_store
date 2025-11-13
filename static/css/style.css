@@ -144,6 +144,17 @@ nav a:hover::after {
     border-radius: 6px;
 }
 
+.nav-admin {
+    background: rgba(139, 115, 85, 0.3);
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid rgba(139, 115, 85, 0.5);
+}
+
+.nav-admin:hover {
+    background: rgba(139, 115, 85, 0.4);
+}
+
 /* ===========================
    MAIN CONTENT
    =========================== */
@@ -243,9 +254,15 @@ main {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 1.5rem;
     margin: 2rem 0;
+}
+
+@media (max-width: 1800px) {
+    .product-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 
 @media (max-width: 1600px) {

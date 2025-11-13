@@ -1,0 +1,28 @@
+{% extends 'shop/admin/base_admin.html' %}
+
+{% block title %}Confirmar Eliminación{% endblock %}
+{% block page_title %}Confirmar Eliminación de Perfume{% endblock %}
+
+{% block content %}
+<div class="admin-panel-card delete-confirmation">
+    <div class="confirmation-content">
+        <div class="confirmation-icon">⚠️</div>
+        <h2>¿Estás seguro de que deseas eliminar este perfume?</h2>
+        <div class="perfume-info">
+            <p><strong>Nombre:</strong> {{ perfume.name }}</p>
+            <p><strong>Marca:</strong> {{ perfume.brand.name|default:"Sin marca" }}</p>
+            <p><strong>Precio:</strong> L. {{ perfume.price }}</p>
+            <p><strong>Stock:</strong> {{ perfume.stock_quantity }} unidades</p>
+        </div>
+        <p class="warning-text">Esta acción no se puede deshacer.</p>
+
+        <form method="POST" class="confirmation-form">
+            {% csrf_token %}
+            <div class="form-actions">
+                <button type="submit" class="btn btn-danger">🗑️ Sí, Eliminar</button>
+                <a href="{% url 'shop:admin_perfumes_list' %}" class="btn btn-secondary">❌ Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

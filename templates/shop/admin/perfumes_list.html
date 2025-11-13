@@ -1,0 +1,73 @@
+{% extends 'shop/admin/base_admin.html' %}
+
+{% block title %}Gestión de Perfumes{% endblock %}
+{% block page_title %}Gestión de Perfumes{% endblock %}
+
+{% block content %}
+<div class="admin-actions">
+    <a href="{% url 'shop:admin_perfume_add' %}" class="btn btn-accent">➕ Agregar Nuevo Perfume</a>
+
+    <form method="GET" class="admin-search-form">
+        <input type="text" name="q" value="{{ query }}" placeholder="Buscar perfume, marca o categoría..." class="admin-search-input">
+        <button type="submit" class="btn btn-secondary">🔍 Buscar</button>
+    </form>
+</div>
+
+<div class="admin-panel-card">
+    <div class="table-responsive">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Marca</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for perfume in perfumes %}
+                <tr>
+                    <td>{{ perfume.id }}</td>
+                    <td>
+                        {% if perfume.image %}
+                        <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}" class="admin-thumb">
+                        {% else %}
+                        <div class="admin-thumb-placeholder">🧴</div>
+                        {% endif %}
+                    </td>
+                    <td><strong>{{ perfume.name }}</strong></td>
+                    <td>{{ perfume.brand.name|default:"Sin marca" }}</td>
+                    <td>{{ perfume.category.name|default:"Sin categoría" }}</td>
+                    <td>L. {{ perfume.price }}</td>
+                    <td>
+                        <span class="badge {% if perfume.stock_quantity < 10 %}badge-danger{% else %}badge-success{% endif %}">
+                            {{ perfume.stock_quantity }}
+                        </span>
+                    </td>
+                    <td>
+                        {% if perfume.is_active %}
+                        <span class="badge badge-success">Activo</span>
+                        {% else %}
+                        <span class="badge badge-secondary">Inactivo</span>
+                        {% endif %}
+                    </td>
+                    <td class="admin-actions-cell">
+                        <a href="{% url 'shop:admin_perfume_edit' perfume.pk %}" class="btn-sm btn-secondary">✏️ Editar</a>
+                        <a href="{% url 'shop:admin_perfume_delete' perfume.pk %}" class="btn-sm btn-danger">🗑️ Eliminar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="9" class="text-center">No se encontraron perfumes{% if query %} que coincidan con "{{ query }}"{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

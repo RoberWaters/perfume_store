@@ -17,6 +17,9 @@
                 <li><a href="{% url 'about:about' %}">¿Quiénes Somos?</a></li>
                 <li><a href="{% url 'about:blog' %}">Blog</a></li>
                 {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                    <li><a href="{% url 'shop:admin_dashboard' %}" class="nav-admin">⚙️ Panel Admin</a></li>
+                    {% endif %}
                     <li><a href="{% url 'shop:cart' %}" class="nav-cart">🛒 Carrito ({{ cart_count }})</a></li>
                     <li><a href="{% url 'orders:order_list' %}">Mis Pedidos</a></li>
                     <li><a href="{% url 'accounts:profile' %}">Mi Perfil</a></li>

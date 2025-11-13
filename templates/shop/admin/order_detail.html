@@ -1,0 +1,142 @@
+{% extends 'shop/admin/base_admin.html' %}
+
+{% block title %}Orden {{ order.order_number }}{% endblock %}
+{% block page_title %}Detalle de Orden - {{ order.order_number }}{% endblock %}
+
+{% block content %}
+<div class="admin-order-detail-grid">
+    <!-- Información de la Orden -->
+    <div class="admin-panel-card">
+        <h3>Información General</h3>
+        <div class="order-info-grid">
+            <div class="info-item">
+                <strong>Número de Orden:</strong>
+                <span>{{ order.order_number }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Estado:</strong>
+                <span class="badge badge-{{ order.status|lower }}">{{ order.status }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Fecha de Creación:</strong>
+                <span>{{ order.created_at|date:"d/m/Y H:i" }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Total:</strong>
+                <span class="price-highlight">L. {{ order.total_amount }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Información del Cliente -->
+    <div class="admin-panel-card">
+        <h3>Información del Cliente</h3>
+        <div class="order-info-grid">
+            <div class="info-item">
+                <strong>Nombre:</strong>
+                <span>{{ order.user.username }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Email:</strong>
+                <span>{{ order.user.email }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Dirección:</strong>
+                <span>{{ order.shipping_address }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Ciudad:</strong>
+                <span>{{ order.shipping_city }}, {{ order.shipping_state }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Código Postal:</strong>
+                <span>{{ order.shipping_postal_code }}</span>
+            </div>
+            {% if order.notes %}
+            <div class="info-item full-width">
+                <strong>Notas:</strong>
+                <span>{{ order.notes }}</span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Productos -->
+<div class="admin-panel-card">
+    <h3>Productos de la Orden</h3>
+    <div class="table-responsive">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio Unitario</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in order.items.all %}
+                <tr>
+                    <td><strong>{{ item.perfume.name }}</strong></td>
+                    <td>L. {{ item.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>L. {{ item.subtotal }}</td>
+                </tr>
+                {% endfor %}
+                <tr class="total-row">
+                    <td colspan="3" class="text-right"><strong>Total:</strong></td>
+                    <td><strong>L. {{ order.total_amount }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Cambiar Estado -->
+<div class="admin-panel-card">
+    <h3>Actualizar Estado de la Orden</h3>
+    <form method="POST" class="status-update-form">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-8">
+                <label>Nuevo Estado:</label>
+                <select name="status" class="form-control">
+                    {% for value, label in status_choices %}
+                    <option value="{{ value }}" {% if value == order.status %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-4">
+                <label>&nbsp;</label>
+                <button type="submit" class="btn btn-accent full-width">🔄 Actualizar Estado</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Historial de Estados -->
+{% if order.status_history.all %}
+<div class="admin-panel-card">
+    <h3>Historial de Estados</h3>
+    <div class="status-history">
+        {% for history in order.status_history.all %}
+        <div class="history-item">
+            <div class="history-icon">📝</div>
+            <div class="history-content">
+                <p><strong>{{ history.new_status }}</strong></p>
+                <p class="history-meta">
+                    {{ history.created_at|date:"d/m/Y H:i" }}
+                    {% if history.changed_by %} por {{ history.changed_by.username }}{% endif %}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div class="form-actions">
+    <a href="{% url 'shop:admin_orders_list' %}" class="btn btn-secondary">⬅️ Volver al Listado</a>
+</div>
+{% endblock %}

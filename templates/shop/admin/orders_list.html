@@ -1,0 +1,57 @@
+{% extends 'shop/admin/base_admin.html' %}
+
+{% block title %}Gestión de Órdenes{% endblock %}
+{% block page_title %}Gestión de Órdenes{% endblock %}
+
+{% block content %}
+<div class="admin-actions">
+    <form method="GET" class="admin-search-form">
+        <select name="status" class="admin-select" onchange="this.form.submit()">
+            <option value="">Todos los estados</option>
+            {% for value, label in status_choices %}
+            <option value="{{ value }}" {% if value == status_filter %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="text" name="q" value="{{ query }}" placeholder="Buscar por número de orden, cliente o email..." class="admin-search-input">
+        <button type="submit" class="btn btn-secondary">🔍 Buscar</button>
+    </form>
+</div>
+
+<div class="admin-panel-card">
+    <div class="table-responsive">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Cliente</th>
+                    <th>Email</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td><strong>{{ order.order_number }}</strong></td>
+                    <td>{{ order.user.username }}</td>
+                    <td>{{ order.user.email }}</td>
+                    <td>L. {{ order.total_amount }}</td>
+                    <td><span class="badge badge-{{ order.status|lower }}">{{ order.status }}</span></td>
+                    <td>{{ order.created_at|date:"d/m/Y H:i" }}</td>
+                    <td class="admin-actions-cell">
+                        <a href="{% url 'shop:admin_order_detail' order.pk %}" class="btn-sm btn-accent">👁️ Ver Detalles</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="text-center">No se encontraron órdenes{% if query or status_filter %} con los filtros aplicados{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends 'shop/admin/base_admin.html' %}
+
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Dashboard - Resumen General{% endblock %}
+
+{% block content %}
+<div class="admin-stats-grid">
+    <div class="admin-stat-card">
+        <div class="stat-icon">🧴</div>
+        <div class="stat-info">
+            <h3>{{ total_perfumes }}</h3>
+            <p>Total Perfumes</p>
+        </div>
+    </div>
+
+    <div class="admin-stat-card">
+        <div class="stat-icon">📦</div>
+        <div class="stat-info">
+            <h3>{{ total_orders }}</h3>
+            <p>Total Órdenes</p>
+        </div>
+    </div>
+
+    <div class="admin-stat-card warning">
+        <div class="stat-icon">⏳</div>
+        <div class="stat-info">
+            <h3>{{ pending_orders }}</h3>
+            <p>Órdenes Pendientes</p>
+        </div>
+    </div>
+
+    <div class="admin-stat-card success">
+        <div class="stat-icon">💰</div>
+        <div class="stat-info">
+            <h3>L. {{ total_revenue|floatformat:2 }}</h3>
+            <p>Ingresos Totales</p>
+        </div>
+    </div>
+</div>
+
+<div class="admin-dashboard-grid">
+    <!-- Órdenes Recientes -->
+    <div class="admin-panel-card">
+        <div class="card-header">
+            <h2>Órdenes Recientes</h2>
+            <a href="{% url 'shop:admin_orders_list' %}" class="btn-link">Ver todas</a>
+        </div>
+        <div class="table-responsive">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Cliente</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in recent_orders %}
+                    <tr>
+                        <td><a href="{% url 'shop:admin_order_detail' order.pk %}">{{ order.order_number }}</a></td>
+                        <td>{{ order.user.username }}</td>
+                        <td>L. {{ order.total_amount }}</td>
+                        <td><span class="badge badge-{{ order.status|lower }}">{{ order.status }}</span></td>
+                        <td>{{ order.created_at|date:"d/m/Y H:i" }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center">No hay órdenes registradas</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Productos con Bajo Stock -->
+    <div class="admin-panel-card">
+        <div class="card-header">
+            <h2>Productos con Bajo Stock</h2>
+            <a href="{% url 'shop:admin_perfumes_list' %}" class="btn-link">Ver todos</a>
+        </div>
+        <div class="table-responsive">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Stock</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for perfume in low_stock_perfumes %}
+                    <tr>
+                        <td>{{ perfume.name }}</td>
+                        <td><span class="badge badge-danger">{{ perfume.stock_quantity }}</span></td>
+                        <td><a href="{% url 'shop:admin_perfume_edit' perfume.pk %}" class="btn-sm">Editar</a></td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3" class="text-center">Todos los productos tienen stock suficiente</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
