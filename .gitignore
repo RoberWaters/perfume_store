@@ -21,8 +21,8 @@ settings_local.py
 # Django
 *.sqlite3
 db.sqlite3
-/staticfiles
-/media
+/staticfiles/
+/media/
 *.log
 local_settings.py
 
@@ -38,5 +38,6 @@ local_settings.py
 *.bak
 *.backup
 
-# Documentation (opcional - remover si quieres incluir CLAUDE.md)
+# Documentation
 CLAUDE.md
+*.md

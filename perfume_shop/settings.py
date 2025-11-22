@@ -8,6 +8,18 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-tu-clave-secreta-aqui
 DEBUG = config('DEBUG', default=True, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 
+# Security settings for production (only active when DEBUG=False)
+if not DEBUG:
+    SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=True, cast=bool)
+    SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=True, cast=bool)
+    CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=True, cast=bool)
+    SECURE_HSTS_SECONDS = config('SECURE_HSTS_SECONDS', default=31536000, cast=int)
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = config('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=True, cast=bool)
+    SECURE_HSTS_PRELOAD = config('SECURE_HSTS_PRELOAD', default=True, cast=bool)
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = 'DENY'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -71,6 +83,7 @@ DATABASES = {
          'PORT': config('DB_PORT', default='1433'),
          'OPTIONS': {
              'driver': config('DB_DRIVER', default='ODBC Driver 17 for SQL Server'),
+             'extra_params': 'Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30',
          },
      }
 }
@@ -87,13 +100,14 @@ TIME_ZONE = 'America/Tegucigalpa'
 USE_I18N = True
 USE_TZ = True
 
+# Static files configuration
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Para collectstatic en producción
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Authentication URLs
 LOGIN_URL = 'accounts:login'
 LOGIN_REDIRECT_URL = 'shop:home'
 LOGOUT_REDIRECT_URL = 'shop:home'
