@@ -11,6 +11,8 @@ venv/
 env/
 ENV/
 .venv/
+vmperfume_key.pem
+vmperfume_key.pem:Zone.Identifier
 
 # Environment variables and sensitive configuration
 .env
